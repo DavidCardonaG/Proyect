@@ -33,7 +33,7 @@ export default class Login extends Component {
             .then(response => {
                 if (response.length > 0) {
                     var respuesta = response[0];
-                    alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_paterno}`);
+                    alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido_principal}`);
                 } else {
                     alert('El usuario o la contraseña no son correctos');
                 }
@@ -67,13 +67,13 @@ export default class Login extends Component {
                 <input
                     type="Password"
                     id="inputPassword"
-                    placeholder="Contreña"
+                    placeholder="Contraseña"
                     required=""
                     onChange={this.handleChange}
                     name= "password"
                 />
 
-                <button type="submit" className="Login" onclick={() => this.iniciarSesion}>Login</button>
+                <button type="submit" className="Login" onClick={() => this.iniciarSesion}>Login</button>
 
                 <div className="">
                     <p className="p-login">Login con social Network</p>

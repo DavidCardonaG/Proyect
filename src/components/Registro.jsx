@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import md5 from 'md5';
 import uuid  from 'react-uuid';
+import {Title,IMG,H3,Contai,LINK} from '../styled/AppStyled'
 
 const Baseurl = 'http://login-apikey.herokuapp.com/usuario'
 export default class Registro extends Component {
@@ -14,8 +15,8 @@ export default class Registro extends Component {
           form:{
               id:'',
               name:'',
-              apellido_paterno:'',
-              apellido_materno:'',
+              apellido_principal:'',
+              apellido_secundario:'',
               nombre:'',
               username:'',
               password:''
@@ -38,8 +39,8 @@ export default class Registro extends Component {
     RegistroUsuario = async () => {
         await axios.post(Baseurl, {
           id: uuid,
-          apellido_paterno: this.state.form.apellido_paterno,
-          apellido_materno: this.state.form.apellido_materno,
+          apellido_principal: this.state.form.apellido_principal,
+          apellido_secundario: this.state.form.apellido_secundario,
           nombre: this.state.form.nombre,
           username: this.state.form.username,
           password: md5(this.state.form.password)
@@ -53,22 +54,21 @@ export default class Registro extends Component {
         return (
             <div className="Registro py-5 container text-center">
                 <form className="form-signin" onSubmit={this.handleSutmit}>
-                    <h1 className="h3 mb-3 font-weight-normal">
-                        ¡Registrate en nuestro sistema!
-                    </h1>
+                    <Title className="title-registro">
+                        ¡REGISTRATE EN NUESTRA APP BLOCK MASTER!
+                    </Title>
                     <div className="fadeIn first ">
-                        <img 
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS689Xb1GJwNGzZl9KR7CTRKAZFaXt1060H32xPbb8hw_NXNpJ409Sl-aLnPsJQUfKJnYEV_KndttR1bbUKS_f7DGE3OP59H1Y&usqp=CAU&ec=45725305" 
+                        <IMG
+                        src="https://res.cloudinary.com/cardonagarciadavid11/image/upload/v1631140173/logo-blockBuster_saqw82.png" 
                         id="icon" 
-                        alt="User Icon" 
-                        width="100px"/>
-                        <h3>Crea una cuenta</h3>
+                        alt="User Icon" />
+                        <H3>CREA UNA CUENTA</H3>
                     </div>
-
+                    <Contai>
                     <input
                         type="text"
-                        placeholder="Apellido paterno"
-                        name="apellido_paterno"
+                        placeholder="Primer Apellido"
+                        name="apellido_principal"
                         className="form-control"
                         autoComplete="off"
                         onChange={this.handleChange}
@@ -78,8 +78,8 @@ export default class Registro extends Component {
 
                     <input
                         type="text"
-                        placeholder="Apellido materno"
-                        name="apellido_materno"
+                        placeholder="Secundo Apellido"
+                        name="apellido_secundario"
                         className="form-control"
                         autoComplete="off"
                         onChange={this.handleChange}
@@ -91,7 +91,7 @@ export default class Registro extends Component {
                         type="text"
                         name="nombre"
                         className="form-control"
-                        placeholder="nombre"
+                        placeholder="Nombre"
                         onChange={this.handleChange}
                         required=""
 
@@ -116,6 +116,7 @@ export default class Registro extends Component {
                         required=""
 
                     />
+                    </Contai>
                     <br />
                     <button
                         type="submit"
@@ -125,7 +126,7 @@ export default class Registro extends Component {
                         Register
                     </button>
                     <br />
-                    <Link to="" className="link"> Already registered?</Link>
+                   <LINK> <Link to="" className="Link"> ¿YA ESTAS REGISTRADO?</Link></LINK>
                 </form>
             </div>
         )
