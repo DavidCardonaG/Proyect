@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Link
 } from "react-router-dom";
 import Registro from "../components/Registro"
 import App from "../containers/App"

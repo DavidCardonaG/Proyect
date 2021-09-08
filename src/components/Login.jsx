@@ -3,7 +3,7 @@ import {Body} from '../styled/AppStyled'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 import md5 from 'md5';
-const Baseurl = ''
+const Baseurl = 'http://login-apikey.herokuapp.com/usuario'
 
 export default class Login extends Component {
     constructor() {
@@ -50,15 +50,14 @@ export default class Login extends Component {
             <Body>
             <div>
                 <h1>BIENVENIDO</h1>
-            <form className="form-signin" onSubmit={this.handleSutmit}>
-                <h1 className="h4 mb-3 font-weight-normal">
+            <form className="" onSubmit={this.handleSutmit}>
+                <h1>
                     Inicio de sesión
                 </h1>
 
                 <input
                     type="email"
                     id="inputEmail"
-                    className="form-control mt-1"
                     placeholder="Email"
                     required=""
                     onChange={this.handleChange}
@@ -68,7 +67,6 @@ export default class Login extends Component {
                 <input
                     type="Password"
                     id="inputPassword"
-                    className="form-control mt-1"
                     placeholder="Contreña"
                     required=""
                     onChange={this.handleChange}
@@ -81,7 +79,7 @@ export default class Login extends Component {
                     <p className="p-login">Login con social Network</p>
                      <button className="btnGoogle"><i class="fab fa-google">Inicia sesión con google</i></button>
                 </div>
-                  <Link to="" className="Link"> Create new account</Link>
+                  <Link to="/registro" className="Link"> Create new account</Link>
             </form>
         </div>
         </Body>

@@ -4,7 +4,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import uuid  from 'react-uuid';
 
-const Baseurl = ''
+const Baseurl = 'http://login-apikey.herokuapp.com/usuario'
 export default class Registro extends Component {
 
     constructor() {
@@ -30,12 +30,12 @@ export default class Registro extends Component {
                 [e.target.name]: e.target.value
             }
         });
-        console.log(this.state.form) //imprimir todo el estado 
+        console.log(this.state.form) 
     }
     handleSutmit = (e) => {
         e.preventDefault();
     }
-    ResgistroUsuario = async () => {
+    RegistroUsuario = async () => {
         await axios.post(Baseurl, {
           id: uuid,
           apellido_paterno: this.state.form.apellido_paterno,
@@ -120,7 +120,7 @@ export default class Registro extends Component {
                     <button
                         type="submit"
                         className="btn btn-primary btn-block mb-1"
-                        onClick={() => this.ResgistroUsuario}
+                        onClick={() => this.RegistroUsuario}
                     >
                         Register
                     </button>
